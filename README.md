@@ -3,7 +3,8 @@
 
 # 1. What am I
 
-This is a simple django template with some pre implemented features such as:
+This is a simple django chess game template with some pre implemented features such as:
+- chess game using django rest frame work and simple jquery ajax call
 - user signup, email confirmation,
 - user logon, password create/change
 - user authorization middleware
@@ -77,9 +78,6 @@ Autotype generates the lines below: dont forget to change the params, to convirm
     PRODUCTION = 'prod' in socket.gethostname()
     print(f'HOSTNAME = {socket.gethostname()}')
 
-    # is added to allowed hosts
-    PRODUCTION_IP = '35.237.15.200'
-
     # only needed if reverse proxy is used
     PROXY_IPS = ['in-case-of.proxy']
 
@@ -92,6 +90,9 @@ Autotype generates the lines below: dont forget to change the params, to convirm
 
     # to debug in production set to True
     DEBUG_PROD = False
+
+    # is added to allowed hosts
+    PRODUCTION_IP = '35.237.<--'
 
 
 02_install_project
