@@ -1,0 +1,23 @@
+<!--i_navbar_bottom.html-->
+<footer class="site-footer">
+  <nav class="navbar navbar-expand-md navbar-dark bg-dark fixed-bottom">
+<div class="container">
+  <div class="collapse navbar-collapse" id="navbarToggle">
+{% if user.is_authenticated %}
+    <!-- Navbar Right Side -->
+    <div class="navbar-nav">
+      <a class="nav-item nav-link" href="{% url 'impressum' %}">Impressum</a>
+      <a class="nav-item nav-link" href="{% url 'my_cv' %}">Mein CV</a>
+      <a class="nav-item nav-link" href="{% url 'logout' %}">{{ nav_7 }}</a>
+    </div>
+    {% else %}
+    <div class="navbar-nav mr-auto">
+      <a class="nav-item nav-link" href="{% url 'impressum' %}">Impressum</a>
+      <a class="nav-item nav-link" href="{% url 'login' %}">Login</a>
+      <a class="nav-item nav-link" href="{% url 'register' %}">Anmelden</a>
+    </div>
+{% endif %}
+  </div>
+</div>
+  </nav>
+</footer>

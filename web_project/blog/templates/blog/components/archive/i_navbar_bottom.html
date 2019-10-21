@@ -1,0 +1,37 @@
+<!--i_navbar_bottom.html-->
+<footer class="site-footer">
+  <nav class="navbar navbar-expand-md navbar-dark bg-dark fixed-bottom">
+    <div class="container">
+      <a class="navbar-brand mr-4" href="{% url 'blog-home' %}">{{ nav_1 }}</a>
+      <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarToggle" aria-controls="navbarToggle" aria-expanded="false" aria-label="Toggle navigation">
+      <span class="navbar-toggler-icon"></span>
+      </button>
+
+      <div class="collapse navbar-collapse" id="navbarToggle">
+        <div class="navbar-nav mr-auto">
+          <a class="nav-item nav-link" href="{% url 'posts-all' '0' '0' %}">{{ nav_2 }}</a>
+          <a class="nav-item nav-link" href="{% url 'blog-about' %}">{{ nav_4 }}</a>
+        </div>
+      <div class="collapse navbar-collapse" id="navbarToggle">
+        <div class="navbar-nav mr-auto">
+          <form class="form-inline my-2 my-lg-0">
+            <input class="form-control mr-sm-2" type="search" placeholder="Search" aria-label="Search">
+            <button class="btn {{ form_btn_style2 }} my-2 my-sm-0" type="submit">{{ nav_5 }}</button>
+          </form>
+        </div>
+        <!-- Navbar Right Side -->
+        <div class="navbar-nav">
+            {% if user.is_authenticated %}
+                <a class="nav-item nav-link" href="{% url 'profile' %}"> {{ user }}</a>
+                <a class="nav-item nav-link" href="{% url 'logout' %}">{{ nav_7 }}</a>
+
+            {% else %}
+              <a class="nav-item nav-link" href="{% url 'login' %}">{{ nav_8 }}</a>
+              <a class="nav-item nav-link" href="{% url 'register' %}">{{ nav_9 }}</a>
+            {% endif %}
+
+        </div>
+      </div>
+    </div>
+  </nav>
+</footer>

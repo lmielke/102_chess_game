@@ -1,0 +1,12 @@
+<!--v_poosts.html-->
+{% extends extension %}
+{% block title %} <title>{{ page_title }}</title> {% endblock title %}
+{% block col1 %}
+	{% for post in posts %}
+        {% include "blog/components/i_posts.html" %}
+    {% endfor %}
+
+	{% if is_paginated %}
+		{% include "blog/components/i_paginate.html" %}
+	{% endif %}
+{% endblock col1 %}

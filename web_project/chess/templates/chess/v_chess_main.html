@@ -1,0 +1,33 @@
+<!--csv_detail.html-->
+{% extends extension %}
+{% load crispy_forms_tags %}
+{% block title %} <title>chess game</title> {% endblock title %}
+{% block body %}
+
+<p id='chPid' style="visibility: hidden"> {{ chPid }} </p>
+<p id='pk' style="visibility: hidden"> {{ board.pk }} </p>
+<div class="main">
+    <h4>Create a new Game!
+    <select id="selectGame" style="visibility: hidden"></select>
+    <input type="checkbox" name="vehicle1" value="Bike" id="checkBox1"> I already have a game
+    {% if 'localhost:8000' in request.META.HTTP_HOST %}
+    <button title="Confirm your move to the computer player here!" id="next_move" 
+            class="btn btn-primary btn-outline-danger" onclick="exitGame()"> Exit and Close </button>
+    {% endif %}
+    </h4>
+</div>
+    {# ends the game and closes django webserver if localhost #}
+<div class="start_form">
+    {% crispy form form.helper %}
+</div>
+    <div class="game_area">
+      <img img src="/media/chess_pics/chess_board_1.jpg" alt="Board" style="width:100%;">
+    </div>
+    <div class="white_removeds" draggable="false" id="white_removeds">
+        <img img src="/media/chess_pics/swort_2.png" alt="" class="removed_img">
+    </div>
+    <div class="black_removeds" draggable="false" id="black_removeds">
+        <img img src="/media/chess_pics/swort_1.png" alt="" class="removed_img">
+    </div>
+</div>
+{% endblock %}

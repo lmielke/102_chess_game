@@ -1,0 +1,31 @@
+{% extends extension %}
+{% block body %}
+<!--v_body_1.html-->
+<!--inner-container - v_body_1.html-->
+<div class="inner-container">
+
+    <!--row1 - msg-row - v_body_1.html-->
+    <div class="row">
+        <div class="msg-row"> {% include "blog/components/i_messages.html" %} </div>
+    </div>
+
+    <!--row2 - favorites - v_body_1.html-->
+    <div class="row">
+        {% for theme in themes %}
+            {% if theme.importance == '1' %}
+                {% include "blog/components/i_card.html" %}
+            {% endif %}
+        {% endfor %}
+    </div>
+
+    <!--row3 - carousel - v_body_1.html-->
+    <div class="row">
+        {% for theme in themes %}
+            {% if theme.importance != '1' %}
+                {% include "blog/components/i_carousel.html" %}
+            {% endif %}
+        {% endfor %}
+        {% include "blog/components/i_carousel.html" %}
+    </div>
+</div>
+{% endblock body %}

@@ -1,0 +1,11 @@
+<!--i_card.html with counter {{forloop.counter}}-->
+<div class="card">
+    <h6 class="card-title">
+        <a class="nav-item nav-card" href="{% url 'articles-all' theme.id '0' %}">{{ theme.topic }}</a>
+    </h6>
+    <img class="card-img" src="{{ theme.theme_img.url }}" alt="Card image cap">
+    <div class="card-content">
+
+        <p class="card-text">{{ theme.teaser }}</p>
+    </div>
+</div>

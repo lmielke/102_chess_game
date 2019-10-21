@@ -1,0 +1,22 @@
+<!--i_articles.html with counter {{forloop.counter}}-->
+  <article class="media content-section">
+    <div class="media-body">
+      <div class="article-metadata2">
+        <img class="rounded-circle profile-list-img" src="{{ article.author.profile.image.url }}">
+        <a class="mr-2" href="{% url 'articles-user' article.theme article.author.username frame %}"> {{ article.author }}</a>
+        <small class="text-muted">{{ article.date_modified|date:"d F Y" }}</small>
+      </div>
+      <div class="article-metadata">
+        <p class="article-topic"> {{ article.topic }}</p>
+      </div>
+      <h3><a class="article-title" href="{% url 'articles-detail' article.theme article.id frame %}">{{ article.title }}</a></h3>
+      <div class="article-list-img">
+        <img src="{{ article.article_img.url }}"><br>
+        <small class="text-muted">{{ article.img_capt }}</small>
+      </div>
+      <p class="article-teaser">{{ article.teaser }} ...</p>
+          {% if article.more %}
+              <a class="article-metadata2" href="{% url 'articles-detail' article.theme article.id frame %}">{{ article.readmore }}</a>
+          {% endif %}
+          </div>
+  </article>

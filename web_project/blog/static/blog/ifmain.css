@@ -1,0 +1,163 @@
+
+body{
+    margin-top:2px;
+    background: #fafafa;
+    color: #333333;
+}
+
+.jumbotron{
+  background-color: #fafafa;
+  margin-top: 10px;
+  margin-bottom: 10px;
+  padding-top: 15px;
+  padding-bottom: 15px;
+  float: left;
+}
+
+#base-footer{
+  padding: 5px;
+  background:#000;
+  color:#fff;
+}
+
+.card {
+  display:flex;
+  max-width: 15rem;
+  max-height: 20rem;
+  margin: 2pt;
+  margin-bottom: 16pt;
+  padding: 1pt;
+  justify-content: space-around;
+}
+
+.row{
+    justify-content: space-around;
+}
+
+.card-content{
+  margin:7px;
+}
+
+.card-text{
+  padding:5pt;
+}
+
+.alert {
+   width:760px;
+}
+
+h1, h2, h3, h4, h5, h6 {
+  color: #444444;
+}
+
+ul {
+  margin: 0;
+}
+
+.bg-steel {
+  background-color: #5f788a;
+}
+
+.site-header .navbar-nav .nav-link {
+  color: #cbd5db;
+}
+
+.site-header .navbar-nav .nav-link:hover {
+  color: #ffffff;
+}
+
+.site-header .navbar-nav .nav-link.active {
+  font-weight: 500;
+}
+
+.content-section {
+  background: #ffffff;
+  padding: 5px 5px;
+  border: 1px solid #dddddd;
+  border-radius: 3px;
+  margin-top: 20px;
+}
+
+.article-title {
+  color: #428bca;
+  font-size:18px;
+}
+
+a.article-title:hover {
+  color: #428bca;
+  text-decoration: none;
+}
+
+.article-teaser {
+  white-space: pre-line;
+  font-size:16px;
+  font-weight: bold;
+  padding-top: 5px;
+  padding-bottom: 5px;
+}
+
+.article-content {
+  white-space: pre-line;
+  font-size:16px;
+}
+
+.article-img {
+  height: 200px;
+  width: 400px;
+  margin-right: 16px;
+}
+.article-list-img {
+  height: 100px;
+  width: 200px;
+  margin-right: 16px;
+}
+.article-metadata {
+  padding-bottom: 1px;
+  margin-bottom: 1px;
+  border-bottom: 1px solid #e3e3e3
+}
+
+.article-metadata a:hover {
+  color: #333;
+  text-decoration: none;
+}
+
+.article-svg {
+  width: 25px;
+  height: 25px;
+  vertical-align: middle;
+}
+
+.account-img {
+  height: 125px;
+  width: 125px;
+  margin-right: 20px;
+  margin-bottom: 16px;
+}
+
+.account-heading {
+  font-size: 2.5rem;
+}
+
+.profile-img {
+  height: 65px;
+  width: 65px;
+  margin-right: 16px;
+  float: right;
+}
+.profile-list-img {
+  height: 45px;
+  width: 45px;
+  margin-right: 7px;
+  float: right;
+}
+.button-container{
+  margin-left: 20px;
+  margin-bottom: 30px;
+  float: right;
+}
+.btn{
+  margin-right: 7px;
+  margin-top: 20px;
+}
+

@@ -1,0 +1,286 @@
+body {
+  background: #efeded;
+  color: #333333;
+}
+
+.inner-container{
+  margin-top:20px;
+  margin-bottom:50px;
+  margin-left:15px;
+}
+
+.display-4{
+  color: white;
+  font-size:3rem;
+}
+
+.jumbotron{
+  color: white;
+  background-color: green;
+  margin-bottom: 0px;
+  padding-top: 10px;
+  padding-bottom: 10px;
+  padding-right:0px;
+  padding-left:0px;
+  width: auto;
+  font-size:3rem;
+}
+
+#base-footer{
+  padding: 5px;
+  background:#000;
+  color:#fff;
+}
+
+.card {
+  display:flex;
+  max-width: 20rem;
+  max-height: 45rem;
+  margin: 2pt;
+  margin-bottom: 16pt;
+  padding: 1pt;
+  justify-content: space-around;
+}
+.row {
+  margin: 5px;
+}
+
+
+@media (min-width: 768px){
+
+.carousel{
+    justify-content: space-around;
+    margin-right: 50px;
+    margin-left: 190px;
+}
+
+}
+
+.card-title{
+  background-color: #343a40;
+  padding:10px;
+  margin-bottom:1px;
+}
+
+.nav-card{
+  color:white;
+}
+.card-content{
+  margin:7px;
+}
+
+.card-text{
+  padding:5pt;
+}
+
+.alert {
+   width:760px;
+}
+
+h1, h2, h3, h4, h5, h6{
+  color: #444444;
+}
+
+ul {
+  margin: 0;
+}
+
+.bg-steel {
+  background-color: #5f788a;
+}
+
+.site-header .navbar-nav .nav-link {
+  color: #cbd5db;
+}
+.site-header .wrap {
+  background-color: green;
+  padding-top:10px;
+  margin-top:0px;
+  margin-bottom:0px;
+  margin-left:auto;
+  margin-right:auto;
+}
+.site-header .navbar-nav .nav-link:hover {
+  color: #ffffff;
+}
+
+.site-header .navbar-nav .nav-link.active {
+  font-weight: 500;
+}
+.site-header .navbar {
+  padding-left:50px;
+  padding-right:100px;
+}
+.mb-3{
+  margin-left:20px;
+}
+.col-md-7 {
+  padding:1px;
+}
+.content-section {
+  background: #ffffff;
+  border: 1px solid #dddddd;
+  border-radius: 3px;
+  margin-bottom: 20px;
+  padding:10px;
+}
+.form-content-section {
+  background: #ffffff;
+  border: 1px solid #dddddd;
+  border-radius: 3px;
+  padding: 10px;
+}
+.row {
+  margin-left: 0px;
+}
+.article-title {
+  color: #333333;
+  display: block;
+  margin-block-start: 1em;
+  margin-inline-end: 1px;
+}
+
+a.article-title:hover {
+  color: #428bca;
+  text-decoration: none;
+}
+
+.article-teaser {
+  white-space: pre-line;
+  font-size:16px;
+  font-weight: 500;
+  padding-bottom: 5px;
+  margin-top:5px;
+  margin-bottom:0px;
+}
+.article-topic {
+  color:white;
+  font-size:16px;
+  font-weight: 500;
+  padding: 10px;
+  margin: 0px;
+}
+.text-muted-bright {
+  float:right;
+  color:white;
+  font-size:10px;
+  font-weight: 100;
+  margin:5px;
+}
+
+.article-content {
+  white-space: pre-line;
+  font-size:15px;
+  margin-top:10px;
+}
+.media-body {
+  width:100%;
+  overflow:auto;
+}
+
+.article-list-img {
+  max-width:100%;
+  max-height:100%;
+  margin-bottom: 0px;
+  display: block;
+  margin-block-start: 1em;
+  margin-inline-end: 1px;
+}
+
+.article-detail-img {
+  position:relative;
+  max-width:100%;
+  max-height:100%;
+  margin-top: 0px;
+  margin-bottom: 0px;
+  display: block;
+  margin-block-start: 1em;
+  margin-inline-end: 1px;
+}
+
+.article-detail-img img, .article-list-img img {
+width:100%;
+height:auto;
+}
+
+.article-topic-overlay {
+  padding: 7px;
+  color:white;
+  font-weight:600;
+  background-color: #7341f4;
+  position:absolute;
+  top: 30px;
+
+}
+.article-metadata {
+  background: #343a40;
+  padding-left: 10px;
+  margin-bottom: 15px;
+  border-bottom: 1px solid #e3e3e3
+}
+
+
+.article-metadata2 {
+  padding-top: 1px;
+  margin-top: 5px;
+  margin:10px;
+  border-top: 1px
+}
+
+.article-metadata a:hover {
+  color: #333;
+  text-decoration: none;
+}
+
+.article-header {
+  background-color: #343a40;
+  padding:10px;
+  margin-bottom:10px;
+}
+
+.article-svg {
+  width: 25px;
+  height: 25px;
+  vertical-align: middle;
+}
+
+.account-img {
+  height: 125px;
+  width: 125px;
+  margin-right: 20px;
+  margin-bottom: 16px;
+}
+
+.account-heading {
+  font-size: 2.5rem;
+}
+
+.profile-img {
+  height: 60px;
+  width: 60px;
+  margin-right: 16px;
+  float: right;
+  border: 5px solid white;
+}
+.profile-list-img {
+  height: 45px;
+  width: 45px;
+  margin-top: 10px;
+  margin-bottom: 2px;
+  margin-right: 20px;
+  left: right;
+}
+.button-container{
+  margin-left: 20px;
+  margin-bottom: 80px;
+  float: right;
+}
+
+.logo-img {
+  max-width:100%;
+  max-height:85%;
+  margin-bottom: 0px;
+  display: block;
+  margin-block-start: 1em;
+  margin-inline-end: 1px;
+}

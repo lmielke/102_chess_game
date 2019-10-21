@@ -1,0 +1,134 @@
+.selections {
+              position: relative;
+              text-align: left;
+              color: black;
+              margin-bottom: 5%;
+              margin-left:3%;
+              max-width: 70%;
+            }
+
+.submit{
+              padding-left: 3%;
+
+}
+.start_form {
+              margin-left: 5%;
+              position: relative;
+              text-align: center;
+              width:60%;
+            }
+
+.col-form-label {
+              width: 30%;
+              text-align: left;
+}
+
+.game_area {
+              margin-top: 1%;
+              position: relative;
+              max-width: 500px;
+            }
+
+.outer_board {
+              position: relative;
+              left: 50%;
+              transform: translate(-46.4%, -103.3%);
+            }
+
+.chess_table {
+    display: table;
+    border-collapse: separate;
+    border-spacing: 3px;
+}
+    .chess_field {
+      position: absolute;
+      top: 0;
+      bottom: 0;
+      left: 0;
+      right: 0;
+      cursor: pointer;
+    }
+        .allowed{
+                background: green;
+                border-style: dashed;
+                }
+
+        .not_allowed{
+                background: red;
+                border-style: solid;
+                }
+
+        .hold{
+                border: 5px solid green;
+                }
+
+        .invisible{
+                display: none;
+                }
+                    .figure {
+                                position: relative;
+                                float: left;
+                                width: 100%;
+                                top: 0;
+                                bottom: 0;
+                                left: 0;
+                                right: 0;
+                              }
+
+                              .figure_img{
+                                width: 90%;
+                                float:left;
+                              }
+
+                              .empty{
+                                position: absolute;
+                                top: 0;
+                                bottom: 0;
+                                left: 0;
+                                right: 0;
+                                border: 1px solid black;
+                                cursor: pointer;
+                              }
+
+
+.white_removeds {
+  position: relative;
+  margin-top: 2%;
+  float: left;
+  cursor: pointer;
+  width: 93%;
+  height: 10%;
+}
+
+.black_removeds {
+  position: relative;
+  margin-top: 1%;
+  float: left;
+  cursor: pointer;
+  width: 93%;
+  height: 10%;
+}
+
+      .removed_img{
+        width: 10%;
+        float:left;
+      }
+
+
+
+
+
+table {
+  border: none;
+  width: 93.5%;
+}
+td {
+  position: relative;
+  border: none;
+}
+td:after {
+  content: '';
+  display: block;
+  margin-top: 100%;
+  border: none;
+}

@@ -1,0 +1,19 @@
+<!--article_confirm_delete.html-->
+{% extends "blog/body.html" %}
+{% block title %} <title>{{ button_5 }}</title> {% endblock title %}
+{% block col1 %}
+	<div class="form-content-section">
+		<form method="POST">
+			{% csrf_token %}
+			<fieldset class="form-group">
+				<legend class="border-bottom mb-4">{{ button_5 }}</legend>
+				<h2>{{ object.title }}: {{ message_4 }}</h2>
+			</fieldset>
+			<div class="form-goup">
+				<button class="btn btn-outline-danger" type="submit">{{ button_5 }}</button>
+				<a class="btn btn-outline-secondary" href="{% url 'articles-detail' theme object.id frame %}">{{ button_3 }}</a>
+
+			</div>
+		</form>
+	</div>
+{% endblock col1 %}

@@ -1,0 +1,19 @@
+<!DOCTYPE html>
+<html>
+<!--base.html-->
+    <head>
+        {% include "blog/components/i_css_scripts_head.html" %}
+        {% block title %} <title>{{ page_title_0 }}</title> {% endblock title %}
+    </head>
+
+    <body>
+        {% include "blog/components/i_navbar_top.html" %}
+        <main role="main" class="container">
+            {% block body %}
+                {% include "blog/components/no_static.html" %}
+            {% endblock body %}
+        </main>
+        {% include "blog/components/i_navbar_bottom.html" %}
+    </body>
+    {% include "blog/components/i_css_scripts_foot.html" %}
+</html>

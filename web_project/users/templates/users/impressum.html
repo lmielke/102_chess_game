@@ -1,0 +1,20 @@
+{% extends extension %}
+{% load crispy_forms_tags %}
+{% block title %} <title>{{ page_title }}</title> {% endblock title %}
+{% block col1 %}
+	<div class="form-content-section">
+	<div class="form-content-section">
+	  <div class="media">
+	  	{% load static %}
+		<img src="{% static 'users/image/20150618_LarsMielke_face_small.jpg' %}" class="rounded-circle account-img">
+	    <div class="media-body">
+	      <h2 class="account-heading">Lars Mielke</h2>
+	      <p class="text-secondary"><strong> Telefon:</strong> +49 1515 429 1085<br>
+	      							<strong> eMail:</strong> lmielke@outlook.de</p>
+
+	    </div>
+	  </div>
+	  <p><h5 class="text-secondary">{{ user.profile.hello_world }}</h5></p>
+	  </div>
+	</div>
+{% endblock col1 %}

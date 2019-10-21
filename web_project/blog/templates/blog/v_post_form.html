@@ -1,0 +1,10 @@
+<!--post_form.html-->
+{% extends extension %}
+{% load crispy_forms_tags %}
+{% block title %} <title>{{ page_title_3 }}</title> {% endblock title %}
+{% block col1 %}
+	{% crispy form form.helper %}
+	{% if css_prefix %}
+		{% include "blog/components/i_frame_posts.html" %}
+	{% endif %}
+{% endblock col1 %}

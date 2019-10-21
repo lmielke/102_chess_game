@@ -1,0 +1,18 @@
+<!--i_posts.html-->
+<article class="media content-section">
+  {% if not extension == "blog/base_iframe.html" %}
+    <img class="rounded-circle profile-img" src="{{ post.author.profile.image.url }}">
+  {% endif %}
+  <div class="media-body">
+    <div class="article-metadata">
+      <a class="nav-item nav-card" href="{% url 'posts-user' post.theme post.author.username frame %}">{{ post.author }}</a>
+      <small class="text-muted-bright"> am: {{ post.date_created|date:"d F Y" }} </small>
+    </div>
+    <h3><a class="article-title" href="{% url 'posts-detail' post.theme post.article_field.id post.id frame %}">{{ post.title }}</a></h3>
+    {% if frame == "0" %}
+      <p class="article-content">{{ post.content|truncatewords:40 }}</p>
+    {% else %}
+      <p class="article-content">{{ post.content|truncatewords:18 }}</p>
+    {% endif %}
+  </div>
+</article>

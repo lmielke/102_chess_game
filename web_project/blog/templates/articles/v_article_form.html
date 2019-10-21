@@ -1,0 +1,7 @@
+{% extends "blog/body.html" %}
+{% load crispy_forms_tags %}
+{% block title %} <title>{{ page_title_1 }}</title> {% endblock title %}
+{% block col1 %}
+	{% crispy form form.helper %}
+	<br><br><br>
+{% endblock col1 %}

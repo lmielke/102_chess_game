@@ -1,0 +1,12 @@
+<!--i_frame_posts.html-->
+{% if web_mode != 'events' %}
+    {% if article.id %}
+        <iframe src="{% url 'posts-topic' theme article.id '1' %}" style="border: 0" width="100%" height="700" frameborder="0" scrolling="no"></iframe>
+    {% elif article_id and article_id != "0" %}
+            <iframe src="{% url 'posts-topic' theme article_id '1' %}" style="border: 0" width="400" height="800" frameborder="0" scrolling="no"></iframe>
+    {% elif template_name != 'users/impressum.html' %}
+        <h5> {{ message_6 }} </h5>
+    {% else %}
+        <h5> Für angemeldete User steht mein CV als PDF bereit. Siehe Navbar unten!</h5>
+    {% endif %}
+{% endif %}

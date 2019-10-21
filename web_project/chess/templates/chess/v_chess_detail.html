@@ -1,0 +1,75 @@
+<!--csv_detail.html-->
+{% extends extension %}
+{% block title %} <title>{{ board.gameName }}</title> {% endblock title %}
+{% block body %}
+
+<div class="selections">
+    {# these parameters controll the js script, do not delete them #}
+    <p id='gameStatus' style="display: none"> {{ board.gameStatus }} </p>
+    <p id='chPid' style="visibility: hidden"> {{ chPid }} </p>
+    <p id='pk' style="display: none" style="display: none"> {{ board.pk }} </p>
+    {# ends the game and closes django webserver if localhost #}
+    {% if 'localhost:8000' in request.META.HTTP_HOST %}
+        <button title="Confirm your move to the computer player here!" id="next_move" 
+                class="btn btn-primary btn-outline-danger" onclick="exitGame()"> Exit and Close </button>
+    {% endif %}
+    {# you can choose between all saved games at any time #}
+    <select id="selectGame" style="visibility: hidden"></select>
+    <input  title="Check the box and choose one of your existing games!" type="checkbox" 
+            name="vehicle1" value="Bike" id="checkBox1">
+            <i> Continue with another saved game! </i>
+</div>
+
+{# select different game ooptions here #}
+<div class="submit">
+    <h4> {{ board.userName|title }} plays: {{ playerColor }}! Game: {{ board.gameName }}</h4>
+    <h5 id='mainMessage'> Win or die! </h5>
+    {# every user move has to be confirmed by klicking this button, before move is only pending #}
+    <button title="Confirm your move to the computer player here!" id="next_move" 
+            class="btn btn-primary btn-outline-success" onclick="mkPost()"> Next Move </button>
+    {# user can try multiple diffetent moves before clicking Next Move, reset here in case you get lost #}
+    <button title="Got lost experimenting? Reset to last valid game state!" id="start_game" 
+            class="btn btn-primary btn-outline-warning" onclick="undo('{{reload_url}}')"> Reset current move </button>
+    {# you can start new game at any time, your existing game is saved with state as after last Next Move click #}
+    <button title="Like a new game? Your existing game will be saved!" id="start_new_game" 
+            class="btn btn-primary btn-outline-danger" onclick="restart()"> Start new game </button>
+</div>
+
+{# this generates the initial board, (table, ids, imgPaths) as per current data in db #}
+{# note that this is only done if user creates a new game or chooses to reset current move #}
+{# moves and updates are done using a django rest api as defined in views.py #}
+<div class="game_area">
+<img img src="/media/chess_pics/chess_board_{{activePlayer}}.jpg" alt="Board" style="width:100%;">
+<div class="outer_board">
+    <table class="chess_table">
+        {% for row in boardText %}
+            <tr>
+                {% for cell in row %}
+                    <td>
+                        <div class="chess_field" draggable="false" id="{{ cell.td_id }}">
+                            {% if not cell.img_id == '----' %}
+                                <div class="figure" id="{{ cell.img_id }}" draggable="true">
+                                    <img img src="{{ cell.paths }}" alt="" class="figure_img">
+                                </div>
+                            {% else %}
+                            {% endif %}
+                        </div>
+                    </td>
+               {%endfor%}
+           </tr>
+        {%endfor%}
+    </table>
+        <div class="white_removeds" draggable="false" id="white_removeds">
+            {% for figure in removeds.white %}
+                <img img src={{ figure }} alt="" class="removed_img">
+            {% endfor %}
+        </div>
+        <div class="black_removeds" draggable="false" id="black_removeds">
+            {% for figure in removeds.black %}
+                <img img src={{ figure }} alt="" class="removed_img">
+            {% endfor %}
+        </div>
+</div>
+</div>
+{% endblock body %}
+

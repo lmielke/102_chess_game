@@ -1,0 +1,9 @@
+{% autoescape off %}
+
+Willkommen bei {{ domain }}!
+
+Lieber {{ user.username }},
+bitte klicke auf den Aktivierungslink, um deine Identität zu bestätigen.
+
+{{ domain }}{% url 'activate' uidb64=uid token=token %}
+{% endautoescape %}

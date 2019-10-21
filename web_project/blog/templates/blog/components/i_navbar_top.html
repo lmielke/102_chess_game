@@ -1,0 +1,44 @@
+<!-- base_navbar.html -->
+<!--
+      base_header.html -- include in base.html
+      contanis navbar and other header logic
+-->
+<header class="site-header" itemscope itemtype="https://schema.org/WPHeader">
+  {% include "blog/components/i_header.html" %}
+<nav class="navbar navbar-expand-md navbar-dark bg-dark">
+<div class="container">
+  <a class="navbar-brand mr-4" href="{% url 'blog-home' %}">{{ nav_1 }}</a>
+  <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarToggle" aria-controls="navbarToggle" aria-expanded="false" aria-label="Toggle navigation">
+  <span class="navbar-toggler-icon"></span>
+  </button>
+
+  <div class="collapse navbar-collapse" id="navbarToggle">
+    <div class="navbar-nav mr-auto">
+      <a class="nav-item nav-link" href="{% url 'articles-all' '0' '0' %}">{{ nav_2 }}</a>
+      <a class="nav-item nav-link" href="{% url 'posts-all' '0' '0' %}">{{ nav_3 }}</a>
+      <a class="nav-item nav-link" href="{% url 'blog-about' %}">{{ nav_4 }}</a>
+    </div>
+{% if user.is_authenticated %}
+    <div class="navbar-nav mr-auto">
+      <form class="form-inline my-2 my-lg-0">
+        <input class="form-control mr-sm-2" type="search" placeholder="Search" aria-label="Search">
+        <button class="btn {{ form_btn_style2 }} my-2 my-sm-0" type="submit">{{ nav_5 }}</button>
+      </form>
+    </div>
+    <!-- Navbar Right Side -->
+    <div class="navbar-nav">
+      <a class="nav-item nav-link" href="{% url 'articles-create' theme '0' %}">{{ nav_6 }}</a>
+      <a class="nav-item nav-link" href="{% url 'profile' %}"> {{ user }}</a>
+      <a class="nav-item nav-link" href="{% url 'logout' %}">{{ nav_7 }}</a>
+    </div>
+    {% else %}
+    <div class="navbar-nav mr-auto">
+      <a class="nav-item nav-link" href="{% url 'blog-home' %}">Zur Startseite</a>
+      <a class="nav-item nav-link" href="{% url 'login' %}">Login</a>
+      <a class="nav-item nav-link" href="{% url 'register' %}">Anmelden</a>
+    </div>
+{% endif %}
+  </div>
+</div>
+</nav>
+</header>

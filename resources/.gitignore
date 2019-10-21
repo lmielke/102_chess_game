@@ -1,0 +1,7 @@
+*.pyc
+*.pyw
+*.lnk
+*.sublime-project
+*.sublime-workspace
+my_stuff.py
+venv/

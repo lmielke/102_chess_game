@@ -1,0 +1,29 @@
+{% extends "blog/base.html" %}
+<!--row1 - body.html-->
+{% block body%}
+<!--row2 - body.html-->
+<div class="row">
+	<div class="msg-row"> {% include "blog/components/i_messages.html" %} </div>
+	{% if view.kwargs.username %}
+		<h2 class="mb-3">
+		Alle Artikel von {{ view.kwargs.username }} ({{ page_obj.paginator.count }})
+		</h2>
+	{% else %}
+	{% endif %}
+	</div>
+</div>
+
+<!--row3 - body.html-->
+<div class="row">
+	<div class="col-md-7">
+		{% block col1 %}
+			{% include "blog/components/no_static.html" %}
+		{% endblock col1 %}
+	</div>
+	<div class="col-md-5">
+	 	{% block col2 %}
+	 		{% include "blog/i_body_col2.html" %}
+	 	{% endblock col2 %}
+	</div>
+</div>
+{% endblock body %}

@@ -1,0 +1,11 @@
+{% extends "blog/body.html" %}
+{% block col1 %}
+    <h1>Wir haben einen Aktivierungs-Link an ihre eMail Adresse geschickt.</h1>
+    <div class="boder-top pt-3">
+        <small class="text-muted">
+                <a href="{% url 'login' %}">
+                    Login
+                </a>
+        </small>
+    </div>
+{% endblock col1 %}

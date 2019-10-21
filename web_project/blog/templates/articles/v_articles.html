@@ -1,0 +1,13 @@
+<!--v_articles.html-->
+{% extends "blog/body.html" %}
+{% block title %} <title>{{ page_title_2 }}</title> {% endblock title %}
+{% block col1 %}
+	{% for article in articles %}
+    {% include "blog/components/i_articles.html" %}
+    {% endfor %}
+	{% if is_paginated %}
+		{% include "blog/components/i_paginate.html" %}
+    {% else %}
+        {% include "blog/components/no_static.html" %}
+	{% endif %}
+{% endblock col1 %}

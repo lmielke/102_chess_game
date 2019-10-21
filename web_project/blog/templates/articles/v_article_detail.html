@@ -1,0 +1,33 @@
+<!--article_detail.html-->
+{% extends "blog/body.html" %}
+{% block title %} <title>{{ page_title }}</title> {% endblock title %}
+{% block col1 %}
+	<article class="media content-section">
+	  <div class="media-body">
+		    <div class="article-metadata">
+		      	<a class="p-1 mb-2 bg-gradient-info text-white" href="{% url 'articles-user' object.theme object.author.username frame %}">{{ object.author|upper }} am </a>
+		      	<small class="text-light">{{ object.date_created|date:"d. F Y" }}</small>
+		      	<img class="rounded-circle profile-img" src="{{ article.author.profile.image.url }}">
+		   	</div>
+
+		    <h2 class="article-title">{{ object.title }}</h2>
+	        <div class="article-detail-img">
+		    	<img src="{{ article.article_img.url }}"><br>
+		    	<spawn class="article-topic-overlay">{{ object.topic|upper }} </spawn>
+		        <small class="text-muted">{{ article.img_capt }}</small>
+		     </div>
+	    <p class="article-teaser">{{ object.teaser }} </p>
+	    <p class="article-content">{{ object.content }}</p>
+	  </div>
+	 </article>
+	 <div class="button-container">
+	 	<a class="btn btn-dark btn-sm mt-1 mb-1"  href="{% url 'posts-create' object.theme object.id  frame %}">{{ button_2 }}</a>
+	  	<a class="btn btn-secondary btn-sm mt-1 mb-1"  href="{% url 'articles-all' object.theme frame %}">{{ button_3 }}</a>
+	  	<a class="btn btn-success btn-sm mt-1 mb-1"  href="{% url 'chess-init' %}">"Start Game"</a>
+		{% if object.author == user %}
+			<br>
+	      	<a class="btn btn-info btn-sm mt-1 mb-1"  href="{% url 'articles-update' object.theme object.id frame %}">{{ button_4 }}</a>
+	      	<a class="btn btn-danger btn-sm mt-1 mb-1"  href="{% url 'articles-delete' object.theme object.id frame %}">{{ button_5 }}</a>
+	  	{% endif %}
+	 </div>
+{% endblock col1 %}

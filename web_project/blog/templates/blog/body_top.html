@@ -1,0 +1,19 @@
+<!--body_top.html-->
+{% if web_sys == 'dev' %}
+    <p>host: {{ host_name }}</p>
+    <p>web_sys_fix: {{ web_sys_fix }}, web_sys: {{ web_sys }}</p>
+    <p>web_style_fix: {{ web_style_fix }}, web_style: {{ web_style }}</p>
+    <p>web_mode_fix: {{ web_mode_fix }}, web_mode: {{ web_mode }}</p>
+    <p>template_name: {{ template_name }} </p>
+    <p>witch extends: {{ extension }}</p>
+    <p>css_style: {{ css_style }}</p>
+{% else %}
+    <div class="row">    </div>
+{% load tz %} {% timezone "Europe/Berlin" %}
+ {% get_current_timezone as time_zone %}
+    <br>
+    <H6>{{ time_zone }}: {% now "jS F Y H:i" %}</H6>
+    <br>
+    <a class="nav-item nav-link" href="{% url 'register' %}"><H5>Noch heute anmelden!</H5></a>
+ {% endtimezone %}
+{% endif %}

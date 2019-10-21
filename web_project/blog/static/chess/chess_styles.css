@@ -1,0 +1,59 @@
+.container {
+              position: relative;
+              text-align: center;
+              color: black;
+            }
+
+/* Centered text */
+.centered {
+              position: relative;
+              left: 50%;
+              transform: translate(-47%, -104.7%);
+            }
+.hovered{
+        background: green;
+        border-style: dashed;
+        }
+
+.hold{
+        border: 5px solid green;
+    }
+
+.invisible{
+        display: none;
+    }
+
+table {
+  width: 93.5%;
+    }
+
+td {
+  width: 12.5%;
+  position: relative;
+}
+td:after {
+  content: '';
+  display: block;
+  margin-top: 100%;
+}
+
+.figure {
+  position: absolute;
+  top: 0;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  border: 1px solid black;
+  cursor: pointer;
+}
+
+.empty{
+  position: absolute;
+  top: 0;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  border: 1px solid blue;
+  cursor: pointer;
+  visible: false;
+}

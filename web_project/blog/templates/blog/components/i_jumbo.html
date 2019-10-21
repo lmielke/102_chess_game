@@ -1,0 +1,12 @@
+<!--components/i_jumbo.html-->
+<div class="jumbotron jumbotron-fluid">
+  <div class="container">
+    {% if jumbo_head %}
+        <h3 class="display-4">{{jumbo_head}}</h3>
+        <p class="lead">{{jumbo_text}}</p>
+    {% else %}
+        <h3 class="display-4">Anmelden</h3>
+        <p class="lead">Seien Sie dabei!</p>
+    {% endif %}
+  </div>
+</div>
