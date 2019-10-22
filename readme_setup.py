@@ -72,7 +72,7 @@ def main(*args):
     # renames the template to what ever name you like
     if cloneProjectName != yourProjectName: os.rename(cloneProjectName, yourProjectName)
     # creates the envirionment inside yourProjectPath/venv folder
-    subprocess.call(["python", "-m", "venv", os.path.join(yourProjectPath, "venv")], shell=True)
+    subprocess.call(["python3.7", "-m", "venv", os.path.join(yourProjectPath, "venv")], shell=True)
     # this copies files to allow subprocess to activate your environment
     shutil.copyfile(os.path.join(yourProjectPath, "resources", "activate_this.py"), newEnvActPy)
 

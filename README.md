@@ -26,9 +26,10 @@ I use this installer because it meets my personal preferences! Use at own risk! 
 If on Windows, this will create and upgrade the environment and install the requirements.txt.
 
 Using Windows shell, to auto install you can copy/paste the cmds below following "-->":
-1. Clone repo into folder in which this repo will exist        --> (cd [your_venvs_folder] && git clone https://github.com/lmielke/102_chess_game.git)
-2. Copy the readme_setup.py file into your venvs folder        --> (cd 102_chess_game && copy readme_setup.py .. && cd ..)
-3. Run readme_setup.py with the following arguments 
+1. Create a folder for the credentials file my_stuff.py and add content (see below) current default dir is C:\python_venvs\99_snipp_block\dj_conf_files\my_stuff.py
+2. Clone repo into folder in which this repo will exist        --> (cd [your_venvs_folder] && git clone https://github.com/lmielke/100_django_template.git)
+3. Copy the readme_setup.py file into your venvs folder        --> (cd 100_django_template && copy readme_setup.py .. && cd ..)
+4. Run readme_setup.py with the following arguments 
     yourProjectName hostname(IP or localhost)                  --> (readme_setup.py yourProjectName http://localhost:8000)
 
 NOTE: The readme_setup.py is a nbconvert of readme_setup.jpynb. If necessary, it can be created by typing (jupyter nbconvert --to script readme_setup.ipynb) inside the repo folder.
