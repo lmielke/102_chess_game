@@ -1,4 +1,4 @@
-# 102_chess_game (python 3.7) NOTE: install for python3.8 will fail
+# 102_chess_game (python 3.7) NOTE: install for python3.8 will fail as of October 2019
 ##To use auto install, use readme_setup.py as specified below.
 
 # 1. What am I
@@ -26,6 +26,7 @@ I use this installer because it meets my personal preferences! Use at own risk! 
 If on Windows, this will create and upgrade the environment and install the requirements.txt.
 
 Using Windows shell, to auto install you can copy/paste the cmds below following "-->":
+Setup: You have python installed outside venv (ideally 3.7). You have the requests module installed (pip install requests).
 1. Create a folder for the credentials file my_stuff.py and add content (see below) current default dir is C:\python_venvs\99_snipp_block\dj_conf_files\my_stuff.py
 2. Clone repo into folder in which this repo will exist        --> (cd [your_venvs_folder] && git clone https://github.com/lmielke/100_django_template.git)
 3. Copy the readme_setup.py file into your venvs folder        --> (cd 100_django_template && copy readme_setup.py .. && cd ..)
