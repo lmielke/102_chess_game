@@ -1,6 +1,6 @@
 #!/bin/bash
 cd /home
-mv 100_django_template 102_chess_game
+mv 102_chess_game 102_chess_game
 sudo apt -y update
 sudo apt -y upgrade
 sudo apt install -y python3-pip
@@ -44,8 +44,6 @@ sudo ufw allow https/tcp
 sudo ufw allow 3389
 sudo ufw enable
 sudo passwd marvin
-Nihau_Ma1
-Nihau_Ma1
 netstat -nat | grep LISTEN
 sudo ufw status
 sudo /etc/wsgi-port-80/apachectl restart
@@ -58,4 +56,3 @@ sudo apt install libexo-1-0
 sudo apt install firefox
 sudo service xrdp restart
 sudo /etc/wsgi-port-80/apachectl restart
-rm -r 100_django_template
