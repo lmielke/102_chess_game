@@ -63,12 +63,14 @@ def main(*args):
     myStuffPath = os.path.join(venvsPath, "99_snipp_block", "dj_conf_files", "my_stuff.py")
     existingEnvironments = os.listdir(venvsPath)
     if yourProjectName in existingEnvironments:
-        raise Exception(f"UUUUPPPPSSS: AN Environement with name {yourProjectName} already exists in {venvsPath} \n{existingEnvironments}")
+        print(f"AN Environement with name {yourProjectName} already exists in {venvsPath} \n{existingEnvironments}")
+        print("you have 15 secs to abort by pressing Ctrl+C now")
+        time.sleep(15)
     else:
         print("ready to go")
     os.chdir(venvsPath)
     # renames the template to what ever name you like
-    os.rename(cloneProjectName, yourProjectName)
+    if cloneProjectName != yourProjectName: os.rename(cloneProjectName, yourProjectName)
     # creates the envirionment inside yourProjectPath/venv folder
     subprocess.call(["python", "-m", "venv", os.path.join(yourProjectPath, "venv")], shell=True)
     # this copies files to allow subprocess to activate your environment

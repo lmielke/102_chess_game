@@ -55,6 +55,7 @@ class MyHelper():
         context_meta['theme'] = str(self.tgt_url_args.get('Theme', '0'))
         context_meta['step'] = str(self.tgt_url_args.get('Step', '0'))
         context_meta['page_title'] = view_args['page_title']
+        context_meta['CHPID'] = settings.CHPID
         # web_sys changes web behavior (i.e. display page params)
         context_meta['web_sys'] = gbl_web_sys
         context_meta['web_sys_fix'] = os.environ.get('WEB_SYS_FIX', 'False')
