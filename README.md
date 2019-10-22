@@ -1,10 +1,12 @@
 # 102_chess_game
-## This Notebook is for documentation only. You should not run the code directly. To use auto install, use readme_setup.py as specified below.
+##To use auto install, use readme_setup.py as specified below.
 
 # 1. What am I
 
-This is a simple django chess game template with some pre implemented features such as:
-- chess game using django rest frame work and simple jquery ajax call
+This is a simple django template with some pre implemented features such as:
+- online chess game which uses django rest framework and a simple jquery ajax call to update the board
+- min/max player with tensorflow eval model (i used a simple sequential conv net to eval the board state)
+- move player by drag/drop (currently not working on mobile because I dont use tuch events)
 - user signup, email confirmation,
 - user logon, password create/change
 - user authorization middleware
@@ -12,33 +14,75 @@ This is a simple django chess game template with some pre implemented features s
 - some param settings to allow multiple domains to map to this template (you may not need this, to remove, you have to make some changes the existing models and forms)
 - some pre defined css sheet
 
-To manually install in development, clone this repo and install the requirements.txt from the resources folder. Add my_stuff.py to the folder which contains settings.py
-HINT: content of my_stuff.py can be seen blow under NOTES for 01_clone_repo. Lines 39-60
+# 2. Installation
+For manual development install, clone this repo and create the venv with requirements.txt from the resources folder. Add my_stuff.py to web_project >> web_project (same folder as settings.py).
 
-# 2. Development Setup and installation using the commands below (Windows only)
+HINT: The content of my_stuff.py can be seen below. 20 lines starting with: import socket
 
-I use this installer because it meets my personal preferences. Use at own risk! Do not run this notebook directly but use readme_setup.py file instead. This will create a environment and install the requirements.txt.
 
-If on Windows, use cmds below:
-1. Clone repo into folder in which this repo will exist          --> (cd [venvs folder] && git clone https://github.com/lmielke/102_chess_game.git)
+## 2.1. Development Setup and installation using the commands below (Windows only)
+
+I use this installer because it meets my personal preferences! Use at own risk! Do not run the notebook directly but use readme_setup.py file instead. 
+If on Windows, this will create and upgrade the environment and install the requirements.txt.
+
+Using Windows shell, to auto install you can copy/paste the cmds below following "-->":
+1. Clone repo into folder in which this repo will exist        --> (cd [your_venvs_folder] && git clone https://github.com/lmielke/102_chess_game.git)
 2. Copy the readme_setup.py file into your venvs folder        --> (cd 102_chess_game && copy readme_setup.py .. && cd ..)
-3. Run readme_setup.py with arguments yourProjectName(repo will be renamed to) hostname(IP or localhost) --> (readme_setup.py 102_new_name http://localhost:8000)
-    NOTE: The readme_setup.py is a nbconvert of readme_setup.jpynb. If necessary, it can be created by typing (jupyter nbconvert --to script readme_setup.ipynb) inside the repo folder.
+3. Run readme_setup.py with the following arguments 
+    yourProjectName hostname(IP or localhost)                  --> (readme_setup.py yourProjectName http://localhost:8000)
 
-# 2. Production setup on Ubuntu >= 16.04 & Apache
+NOTE: The readme_setup.py is a nbconvert of readme_setup.jpynb. If necessary, it can be created by typing (jupyter nbconvert --to script readme_setup.ipynb) inside the repo folder.
+
+
+
+# 2.2. Production setup on Ubuntu >= 16.04 & Apache
 
 Follow the instructions in this youTube link: link is coming soon
-NOTE: to install in Prod you have to make some changes to /resources/ubuntu_apache.sh
 
-
-Resources: I use keepass to keep the install info in two seperate keepass entries
-01_clone_repo
+##01_clone_repo
 #################################################################################
+
+
+Run lines below in Ubuntu shell: change vm_user_name, change 777 to reasonable value after install
+
+    sudo apt update && sudo apt install git && cd /home
+    sudo git clone https://github.com/lmielke/102_chess_game.git
+    sudo chown -R vm_user_name:vm_user_name /home
+    sudo chmod -R 777 /home
+
+This is my_stuff.py. change all relevant params: to convirm you hit Ctrl+x, Y, ENTER
     
-Autotype Sequence: sudo apt update && sudo apt install git && cd /home{ENTER}{DELAY 30000}{URL}{ENTER}{DELAY 10000}sudo chown -R {USERNAME}:{USERNAME} /home{ENTER}{DELAY 1000}sudo chmod -R 777 /home{ENTER}nano {PASSWORD}{ENTER}{DELAY 1000}{NOTES}
+    nano /home/my_stuff.py
+
+    import socket
+
+    # str here needs to be part of virtualenv in gcloud 
+    PRODUCTION = 'prod' in socket.gethostname()
+    print(f'HOSTNAME = {socket.gethostname()}')
+
+    # only needed if reverse proxy is used
+    PROXY_IPS = ['in-case-of.proxy']
+
+    # mail account for signup and pwd reset
+    EMAIL_HOST = 'smtp.yourmail.com'
+    EMAIL_PORT = 587
+    EMAIL_USE_TLS = True
+    EMAIL_HOST_USER = 'yourMail@somewhere.com'
+    EMAIL_HOST_PASSWORD = 'some§$"§%pass§$"word'
+
+    # to debug in production set to True
+    DEBUG_PROD = False
+
+    # is added to allowed hosts
+    PRODUCTION_IP = '35.237.<--'
+
+
+###Keepass Autotype Sequence of 01_clone_repo: 
+
+sudo apt update && sudo apt install git && cd /home{ENTER}{DELAY 30000}{URL}{ENTER}{DELAY 10000}sudo chown -R {USERNAME}:{USERNAME} /home{ENTER}{DELAY 1000}sudo chmod -R 777 /home{ENTER}nano {PASSWORD}{ENTER}{DELAY 1000}{NOTES}
 
     TITLE: 01_clone_repo
-    USERNAME: myuser
+    USERNAME: vm_user_name
     PASSWORD: /home/my_stuff.py
     URL: sudo git clone https://github.com/lmielke/102_chess_game.git
 
@@ -52,7 +96,7 @@ Autotype Sequence: sudo apt update && sudo apt install git && cd /home{ENTER}{DE
         # only needed if reverse proxy is used
         PROXY_IPS = ['in-case-of.proxy']
 
-        # gmail account for signup and pwd reset
+        # mail account for signup and pwd reset
         EMAIL_HOST = 'smtp.yourmail.com'
         EMAIL_PORT = 587
         EMAIL_USE_TLS = True
@@ -65,50 +109,36 @@ Autotype Sequence: sudo apt update && sudo apt install git && cd /home{ENTER}{DE
         # is added to allowed hosts
         PRODUCTION_IP = '35.123.<--'
 
-Autotype generates the lines below: dont forget to change the params, to convirm you hit Ctrl+x, Y, ENTER
 
-    sudo apt update && sudo apt install git && cd /home
-    sudo git clone https://github.com/lmielke/102_chess_game.git
-    sudo chown -R marvin:marvin /home
-    sudo chmod -R 777 /home
-    nano /home/my_stuff.py
-    import socket
+###Before installing you have to change the repo name inside line 3 of resources >> ubuntu_apache.sh
+Change the to-value to what ever you like. Make sure, the name lines up with your 02_install_project names below.
+Also, feel free to add/remove lines from ubuntu_apache.sh if needed.
 
-    # str here needs to be part of virtualenv in gcloud 
-    PRODUCTION = 'prod' in socket.gethostname()
-    print(f'HOSTNAME = {socket.gethostname()}')
-
-    # only needed if reverse proxy is used
-    PROXY_IPS = ['in-case-of.proxy']
-
-    # gmail account for signup and pwd reset
-    EMAIL_HOST = 'smtp.gmail.com'
-    EMAIL_PORT = 587
-    EMAIL_USE_TLS = True
-    EMAIL_HOST_USER = 'blackpelican.rocks@gmail.com'
-    EMAIL_HOST_PASSWORD = 'H;Y:c[$2o%;1G|qv'
-
-    # to debug in production set to True
-    DEBUG_PROD = False
-
-    # is added to allowed hosts
-    PRODUCTION_IP = '35.237.<--'
+    mv 102_chess_game yourProjectName
 
 
-02_install_project
+##02_install_project
 #################################################################################
 
-Autotype Sequence: cp /home/my_stuff.py {USERNAME}{ENTER}{DELAY 1000}cp {URL}/resources/{NOTES} /home/{NOTES}{ENTER}{DELAY 1000}chmod 777 /home/{NOTES}{ENTER}{DELAY 1000}./{NOTES}
+Run lines below in Ubuntu shell: change 777 to reasonable value after install
 
-    TITLE: 02_install_project
-    USERNAME: /home/102_chess_game/web_project/web_project/my_stuff.py
-    PASSWORD: empty
-    URL: /home/102_chess_game
-    NOTES: ubuntu_apache.sh
-
-Autotype generates the lines below: to confirm, hit ENTER
-
-    cp /home/my_stuff.py /home/102_chess_game/web_project/web_project/my_stuff.py
-    cp /home/102_chess_game/resources/ubuntu_apache.sh /home/ubuntu_apache.sh
+    cp /home/my_stuff.py /home/yourProjectName/web_project/web_project/my_stuff.py
+    cp /home/yourProjectName/resources/ubuntu_apache.sh /home/ubuntu_apache.sh
     chmod 777 /home/ubuntu_apache.sh
     ./ubuntu_apache.sh
+
+
+###Keepass Autotype Sequence for 02_install_project:
+
+cp /home/my_stuff.py {USERNAME}{ENTER}{DELAY 1000}cp {URL}/resources/{NOTES} /home/{NOTES}{ENTER}{DELAY 1000}chmod 777 /home/{NOTES}{ENTER}{DELAY 1000}./{NOTES}
+
+    TITLE: 02_install_project
+    USERNAME: /home/yourProjectName/web_project/web_project/my_stuff.py
+    PASSWORD: i keep my ssh key here
+    URL: /home/yourProjectName
+    NOTES: ubuntu_apache.sh
+
+
+# 3. Template change
+In admin there is a starting Theme/Article, that has a web_mode of localhost. This means, its only shown, if HOSTNAME is localhost:8000.
+You can change web_mode to your hostname/IP to show Theme/Article in production.
