@@ -1,4 +1,4 @@
-# 102_chess_game
+# 102_chess_game (python 3.7) NOTE: install for python3.8 will fail
 ##To use auto install, use readme_setup.py as specified below.
 
 # 1. What am I
