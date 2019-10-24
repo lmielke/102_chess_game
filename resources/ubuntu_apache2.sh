@@ -7,6 +7,8 @@ sudo apt install -y python3-pip
 sudo apt install build-essential libssl-dev libffi-dev python3-dev -y
 sudo apt install apache2 -y
 sudo apt install apache2-dev -y
+python -m pip install --upgrade pip
+pip3 install mod_wsgi
 sudo apt install pipenv
 cd /home/102_chess_game
 pipenv install
