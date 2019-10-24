@@ -1,5 +1,5 @@
 # 102_chess_game (python 3.7) NOTE: install for python3.8 will fail as of October 2019
-##To use auto install, use readme_setup.py as specified below.
+##To use auto install, use pipenv_setup.py as specified below.
 
 # 1. What am I
 
@@ -15,29 +15,29 @@ This is a simple django template with some pre implemented features such as:
 - some pre defined css sheet
 
 # 2. Installation
-For manual development install, clone this repo and create the venv with requirements.txt from the resources folder. Add my_stuff.py to web_project >> web_project (same folder as settings.py).
+## 2.2. Manual Installation
+pip: For manual development install, clone this repo and create the venv with requirements.txt from the resources folder. Add my_stuff.py to web_project >> web_project (same folder as settings.py).
+
+pipenv: clone repo, cd into repo, type: pipenv install, create my_stuff.py (see lines after import socket)
 
 HINT: The content of my_stuff.py can be seen below. 20 lines starting with: import socket
 
 
-## 2.1. Development Setup and installation using the commands below (Windows only)
+## 2.2. Development Setup and installation using the commands below (Windows only)
 
-I use this installer because it meets my personal preferences! Use at own risk! Do not run the notebook directly but use readme_setup.py file instead. 
-If on Windows, this will create and upgrade the environment and install the requirements.txt.
+I use this installer because it meets my personal preferences!
+If on Windows, this will create a pipenv and install Pipfile
 
 Using Windows shell, to auto install you can copy/paste the cmds below following "-->":
 Setup: You have python installed outside venv (ideally 3.7). You have the requests module installed (pip install requests).
 1. Create a folder for the credentials file my_stuff.py and add content (see below) current default dir is C:\python_venvs\99_snipp_block\dj_conf_files\my_stuff.py
 2. Clone repo into folder in which this repo will exist        --> (cd [your_venvs_folder] && git clone https://github.com/lmielke/100_django_template.git)
-3. Copy the readme_setup.py file into your venvs folder        --> (cd 100_django_template && copy readme_setup.py .. && cd ..)
-4. Run readme_setup.py with the following arguments 
-    yourProjectName hostname(IP or localhost)                  --> (readme_setup.py yourProjectName http://localhost:8000)
-
-NOTE: The readme_setup.py is a nbconvert of readme_setup.jpynb. If necessary, it can be created by typing (jupyter nbconvert --to script readme_setup.ipynb) inside the repo folder.
+3. Copy the pipenv_setup.py file into your venvs folder        --> (cd 100_django_template && copy pipenv_setup.py .. && cd ..)
+4. Run pipenv_setup.py with the following arguments 
+    yourProjectName hostname(IP or localhost)                  --> (pipenv_setup.py yourProjectName http://localhost:8000)
 
 
-
-# 2.2. Production setup on Ubuntu >= 16.04 & Apache in Google Cloud (steps might differ on other hosting platforms)
+# 2.3. Production setup on Ubuntu >= 16.04 & Apache in Google Cloud (steps might differ on other hosting platforms)
 
 After creating your vm wait some minutes. Then open the vm shell and follow the instructions in this youTube link: link is coming soon
 
@@ -47,14 +47,14 @@ After creating your vm wait some minutes. Then open the vm shell and follow the 
 
 Run lines below in Ubuntu shell: change vm_user_name, change 777 to reasonable value after install
 
-    sudo apt update && sudo apt install git && cd /home
-    sudo git clone https://github.com/lmielke/102_chess_game.git
+    1. sudo apt update && sudo apt install git && cd /home && sudo apt install nano && sudo git clone https://github.com/lmielke/102_chess_game.git
+    
     sudo chown -R vm_user_name:vm_user_name /home
     sudo chmod -R 777 /home
 
 This is my_stuff.py. change all relevant params: to convirm you hit Ctrl+x, Y, ENTER
     
-    nano /home/my_stuff.py
+    2. sudo nano /home/102_chess_game/web_project/web_project/my_stuff.py
 
     import socket
 
@@ -76,17 +76,17 @@ This is my_stuff.py. change all relevant params: to convirm you hit Ctrl+x, Y, E
     DEBUG_PROD = False
 
     # is added to allowed hosts
-    PRODUCTION_IP = '35.237.<--'
+    PRODUCTION_IP = '35.237.15.200'
 
 
 ###Keepass Autotype Sequence of 01_clone_repo: 
 
-sudo apt update && sudo apt install git && cd /home{ENTER}{DELAY 30000}{URL}{ENTER}{DELAY 10000}sudo chown -R {USERNAME}:{USERNAME} /home{ENTER}{DELAY 1000}sudo chmod -R 777 /home{ENTER}nano {PASSWORD}{ENTER}{DELAY 1000}{NOTES}
-
-    TITLE: 01_clone_repo
-    USERNAME: vm_user_name
-    PASSWORD: /home/my_stuff.py
-    URL: sudo git clone https://github.com/lmielke/102_chess_game.git
+sudo apt update && sudo apt install git && sudo apt install nano && cd /home{ENTER}{DELAY 30000}sudo git clone {URL}{ENTER}{DELAY 10000}sudo nano /home/{USERNAME}/web_project/web_project/my_stuff.py{ENTER}{DELAY 1000}{NOTES}{PASSWORD}
+   
+    TITLE: 01_init_setup
+    USERNAME: 102_chess_game
+    PASSWORD: 35.237.15.200
+    URL: https://github.com/lmielke/102_chess_game.git
 
     NOTES:
         import socket
@@ -109,7 +109,7 @@ sudo apt update && sudo apt install git && cd /home{ENTER}{DELAY 30000}{URL}{ENT
         DEBUG_PROD = False
 
         # is added to allowed hosts
-        PRODUCTION_IP = '35.123.<--'
+        PRODUCTION_IP = 
 
 
 ###Before installing you have to change the repo name inside line 3 of resources >> ubuntu_apache.sh
@@ -129,20 +129,20 @@ Run lines below in Ubuntu shell:
 4. You will be asked to choose a desktop. I always go with the default (gdm3). Just press ENTER to confirm.
 
     cp /home/my_stuff.py /home/yourProjectName/web_project/web_project/my_stuff.py
-    cp /home/yourProjectName/resources/ubuntu_apache.sh /home/ubuntu_apache.sh
-    chmod 777 /home/ubuntu_apache.sh
+    cp /home/102_chess_game/resources/ubuntu_apache.sh /home/ubuntu_apache.sh
+    sudo chmod 777 /home/102_chess_game/resources/ubuntu_apache.sh
     ./ubuntu_apache.sh
 
 
 ###Keepass Autotype Sequence for 02_install_project:
 
-cp /home/my_stuff.py {USERNAME}{ENTER}{DELAY 1000}cp {URL}/resources/{NOTES} /home/{NOTES}{ENTER}{DELAY 1000}chmod 777 /home/{NOTES}{ENTER}{DELAY 1000}./{NOTES}
+sudo cp /home/{USERNAME}/resources/{URL} /home/{URL}{ENTER}{DELAY 1000}sudo chmod -R 777 /home{ENTER}{DELAY 1000}./{URL}
 
     TITLE: 02_install_project
-    USERNAME: /home/yourProjectName/web_project/web_project/my_stuff.py
+    USERNAME: 102_chess_game
     PASSWORD: i keep my ssh key here
-    URL: /home/yourProjectName
-    NOTES: ubuntu_apache.sh
+    URL: ubuntu_apache.sh
+    NOTES: 
 
 
 # 3. Template change

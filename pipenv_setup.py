@@ -45,7 +45,7 @@ parser.add_argument('cloneProjectUrl', help='Clone url such as: https://github.c
 
 venvsPath = os.getcwd()
 cloneProjectUrl = parser.parse_args().cloneProjectUrl
-cloneProjectName = cloneProjectUrl.split('/')[-1]
+cloneProjectName = (os.path.basename(cloneProjectUrl)).split('.')[0]
 yourProjectName = parser.parse_args().yourProjectName
 print(f"your new project will be in: {venvsPath}/{yourProjectName}")
 yourProjectPath = os.path.join(venvsPath, yourProjectName)

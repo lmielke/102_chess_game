@@ -7,17 +7,12 @@ sudo apt install -y python3-pip
 sudo apt install build-essential libssl-dev libffi-dev python3-dev -y
 sudo apt install apache2 -y
 sudo apt install apache2-dev -y
-sudo apt install -y python3-venv
-pip3 install mod_wsgi
-python3 -m venv /home/102_chess_game/venv
+sudo apt install pipenv
 cd /home/102_chess_game
-source /home/102_chess_game/venv/bin/activate
-python -m pip install --upgrade pip
-pip install --upgrade setuptools
+pipenv install
+pipenv install mod_wsgi
 sudo chown -R marvin:marvin /home/102_chess_game
-cd web_project
-pip install -r /home/102_chess_game/resources/requirements.txt
-pip install mod_wsgi
+cd /home/102_chess_game/web_project
 sudo mkdir /etc/wsgi-port-80
 sudo chown -R marvin:marvin /etc/wsgi-port-80
 sudo groupadd  www-data
@@ -28,6 +23,7 @@ sudo chown -R :www-data /home/102_chess_game/web_project
 sudo chmod 777 /home/102_chess_game/web_project
 sudo chown :www-data /home/102_chess_game/web_project/102_chess_game.sqlite3
 sudo chmod 664 /home/102_chess_game/web_project/102_chess_game.sqlite3
+pipenv shell
 python manage.py collectstatic
 python manage.py runmodwsgi --server-root /etc/wsgi-port-80 --user www-data --group www-data --port 80 --url-alias /static static --url-alias /media media --setup-only
 sudo apachectl stop
