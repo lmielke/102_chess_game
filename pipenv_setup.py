@@ -45,7 +45,7 @@ parser.add_argument('cloneProjectUrl', help='Clone url such as: https://github.c
 
 venvsPath = os.getcwd()
 cloneProjectUrl = parser.parse_args().cloneProjectUrl
-cloneProjectName = cloneProjectName.split('/')[-1]
+cloneProjectName = cloneProjectUrl.split('/')[-1]
 yourProjectName = parser.parse_args().yourProjectName
 print(f"your new project will be in: {venvsPath}/{yourProjectName}")
 yourProjectPath = os.path.join(venvsPath, yourProjectName)
@@ -65,7 +65,7 @@ def main(*args):
         print("ready to go")
     # renames the template to what ever name you like
     if cloneProjectName != yourProjectName: os.rename(cloneProjectName, yourProjectName)
-    os.chdir(os.path.join(venvsPath, yourProjectName))
+    os.chdir(os.path.join(yourProjectPath))
     # creates the envirionment inside yourProjectPath/venv folder
     subprocess.call(["pipenv", "install"], shell=True)
     try:
@@ -76,7 +76,7 @@ def main(*args):
     os.chdir(os.path.join(yourProjectPath, "web_project"))
     subprocess.call(['pipenv', 'run', 'python', 'manage.py', 'makemigrations'], shell=True)
     subprocess.call(['pipenv', 'run', 'python', 'manage.py', 'migrate'], shell=True)
-    return djProjectPath, newEnvActPy
+    return djProjectPath
 
 
 # ### 2.1.2. Runs the django dev server (manage.py runserver) to test if its there
@@ -120,8 +120,8 @@ if __name__ == '__main__':
     if "django_template" in venvsPath:
         raise Exception("HANDLING ERROR: you can not run readme_setup.py from inside the django_template folder")
     prcId = None
-    a = multiprocessing.Process(target=main, args=(cloneProjectName, yourProjectName, venvsPath, yourProjectPath, djProjectPath, newEnvActPy))
-    b = multiprocessing.Process(target=run_server, args=(cloneProjectName, yourProjectName, venvsPath, yourProjectPath, djProjectPath, newEnvActPy))
+    a = multiprocessing.Process(target=main, args=(cloneProjectName, yourProjectName, venvsPath, yourProjectPath, djProjectPath))
+    b = multiprocessing.Process(target=run_server, args=(cloneProjectName, yourProjectName, venvsPath, yourProjectPath, djProjectPath))
     c = multiprocessing.Process(target=test_server)
     a.start()
     a.join()
