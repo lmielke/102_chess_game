@@ -1,4 +1,6 @@
 #!/bin/bash
+pipenv install currently not working
+
 cd /home
 mv 102_chess_game 102_chess_game
 sudo apt -y update
