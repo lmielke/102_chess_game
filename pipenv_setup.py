@@ -40,7 +40,7 @@ import argparse
 
 
 parser = argparse.ArgumentParser(description="wtf")
-parser.add_argument('yourProjectName', help='Future Project-Name such as: 103_chess_game')
+parser.add_argument('yourProjectName', help='Type your future Project-Name such as: 103_chess_game')
 parser.add_argument('cloneProjectUrl', help='Clone url such as: https://github.com/lmielke/102_chess_game.git')
 
 venvsPath = os.getcwd()
