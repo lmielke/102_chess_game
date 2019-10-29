@@ -75,7 +75,7 @@ class MyHelper():
     def get_web_modes(self, web_mode):
         web_mode_dict = {'black-pelican.rocks':
             {
-            'jumbo_head': 'Build Perfection',
+            'jumbo_head': 'Play hard',
             'jumbo_text': 'And leave nothing in, that could also be taken out!',
             'nav_1': 'THEMEN',
             'nav_2': 'Beiträge',
