@@ -75,7 +75,7 @@ class MyHelper():
     def get_web_modes(self, web_mode):
         web_mode_dict = {'black-pelican.rocks':
             {
-            'jumbo_head': 'Play Hard',
+            'jumbo_head': 'Play Hard or Die',
             'jumbo_text': 'And leave nothing in, that could also be taken out!',
             'nav_1': 'THEMEN',
             'nav_2': 'Beiträge',
@@ -174,7 +174,7 @@ class MyHelper():
 
                     'localhost:8000':
             {
-            'jumbo_head': 'Play Hard',
+            'jumbo_head': 'Play Hard or Die',
             'jumbo_text': 'Perfection is not achived, if there is nothing more to put in.  But nothing left to take out!',
             'nav_1': 'THEMEN',
             'nav_2': 'Experten',
