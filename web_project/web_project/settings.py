@@ -32,9 +32,9 @@ print(f'DEBUG is: {DEBUG}')
 # only info, imported
 PROXY_IPS = PROXY_IPS
 
-ALLOWED_HOSTS = []
-PRODUCTION_IP = PRODUCTION_IP # only info, is imported
+PRODUCTION_IP = PRODUCTION_IP.replace('http://', '') # only info, is imported
 print(f'PRODUCTION_IP = {PRODUCTION_IP}')
+ALLOWED_HOSTS = []
 if PRODUCTION == True:
     ALLOWED_HOSTS.extend(PROXY_IPS)
     ALLOWED_HOSTS.append(PRODUCTION_IP)
